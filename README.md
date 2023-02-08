@@ -17,7 +17,7 @@ The objective of our project: we wanted to the differences in brain activity bet
 <p align="left">While their brain was scanned, each subject was presented with a series of geometric shapes and asked to identify either the color or the shape of the image shown. On 25% of trials the instructions switched, such that participants were instructed to switch from responding from shape to color, or vice versa.</p>
 
 <h3 align="left">The aim:</h3>
-<p align="left">Exploring neuronal activity/connectivity of the various subjects while they perform the task and evaluating possible differences between schizophrenic
+<p align="left">Exploring neuronal activity/connectivity and reaction times of the various subjects while they perform the task and evaluating possible differences between schizophrenic
 and healthy subjects.</p>
 
 <h3 align="left">Statistical tools:</h3>
