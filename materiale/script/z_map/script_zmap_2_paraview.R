@@ -3,7 +3,7 @@
 setwd("G:/Il mio Drive/Brain Connectivity/")
 
 setwd("./materiale")
-load("./workspaces/zmap_creazione.RData")
+load("./workspaces/zmap.RData")
 
 con_reg_sani=colMeans(con_reg[1:125,])
 con_reg_schz=colMeans(con_reg[126:175,])

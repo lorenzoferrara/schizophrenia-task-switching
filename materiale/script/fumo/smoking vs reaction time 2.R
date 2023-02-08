@@ -1,4 +1,4 @@
-load("./materiale/workspaces/rec_2.RData")
+load("./materiale/workspaces/times.RData")
 load("./materiale/workspaces/fumo.RData")
 
 times = c(t_sani,t_schz) 
@@ -48,7 +48,7 @@ fit <- aov(y ~ x)
 summary(fit)
 
 #######################################
-# Bonferroni CI for all the differences, confidence intervalsù
+# Bonferroni CI for all the differences, confidence intervals?
 
 ng=c(length(times_cur), length(times_ex), length(times_not))   # total number of obs.in the single group
       # total number of obs.

@@ -4,7 +4,7 @@ library(ggplot2)
 
 setwd("G:/Il mio Drive/Brain Connectivity")
 
-load("./materiale/workspaces/zmap_creazione.RData")
+load("./materiale/workspaces/zmap.RData")
 setwd("./materiale")
 
 names_regions <- read.csv("./data/names_regions.txt", header=FALSE, sep=";")

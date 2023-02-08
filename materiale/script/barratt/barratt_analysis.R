@@ -131,28 +131,9 @@ summary(step.model)
 full.model = lm( times ~ NON_PLANNING:ATTENTIONAL, data=barratt_raw_data )
 summary(full.model)
 
-#full.model = lm( times ~ ATTENTIONAL, data=barratt_raw_data )
-#summary(full.model)
-
 ###############################
 
 coef = step.model$coefficients
-
-## Plot di RT e BIS 
-# prendi i dati da script_recording_2.R in Lorenzo
-colors=c(rep("blue",125),rep("red",50))
-plot(barratt_raw_data$total_score,c(t_control,t_schz),col=colors, xlab="BIS total score",ylab="Reaction Time")
-
-colors=c(rep("blue",125),rep("red",50))
-plot(barratt_raw_data$NON_PLANNING,c(t_control,t_schz),col=colors, xlab="BIS NON_PLANNNING score",ylab="Reaction Time")
-abline(coef[1], coef[2])
-colors=c(rep("blue",125),rep("red",50))
-plot(barratt_raw_data$MOTOR,c(t_control,t_schz),col=colors, xlab="BIS MOTOR score",ylab="Reaction Time")
-
-colors=c(rep("blue",125),rep("red",50))
-plot(barratt_raw_data$ATTENTIONAL,c(t_control,t_schz),col=colors, xlab="BIS ATTENTIONAL score",ylab="Reaction Time")
-
-
 
 #---------------------------------------------------------------
 fit.att = lm(times ~ barratt_raw_data$ATTENTIONAL + part_list$diagnosis)

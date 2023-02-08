@@ -1,6 +1,6 @@
 rm(list=ls())
 
-load("./materiale/workspaces/zmap_creazione.RData")
+load("./materiale/workspaces/zmap.RData")
 
 N=36035
 ns=3

@@ -2,7 +2,7 @@ rm(list=ls())
 
 setwd("G:/Il mio Drive/Brain Connectivity")
 
-load("./materiale/workspaces/zmap_creazione.RData")
+load("./materiale/workspaces/zmap.RData")
 
 library(fdaPDE)
 

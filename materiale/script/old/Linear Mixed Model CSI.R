@@ -5,7 +5,7 @@ setwd("G:/Il mio Drive/Brain Connectivity")
 ####
 
 setwd("./materiale")
-load("./workspaces/rec_2.RData")
+load("./workspaces/times.RData")
 load("./workspaces/recording_csi.RData")
 
 {library(nlmeU)

@@ -3,8 +3,7 @@ rm(list=ls())
 setwd('G:/Il mio Drive/Brain Connectivity')
 setwd("./materiale/events recording")
 
-load("../workspaces/zmap_creazione.RData")
-
+load("../workspaces/zmap.RData")
 
 N=36035
 ns=3    #numero soggetto di riferimento, poi far? forse un ciclo
@@ -104,8 +103,8 @@ mc_schz = colMeans(z_map[126:175, ], na.rm=TRUE)
 
 { x11()
   par(mfrow=c(3,1))
-  barplot(regioni_sani[,1], names.arg=row.names(regioni_sani), main="Connettività sani")
-  barplot(regioni_schz[,1], names.arg=row.names(regioni_schz), main="Connettività schz")
+  barplot(regioni_sani[,1], names.arg=row.names(regioni_sani), main="Connettivit? sani")
+  barplot(regioni_schz[,1], names.arg=row.names(regioni_schz), main="Connettivit? schz")
   barplot((-regioni_schz[,1]+regioni_sani[,1]), names.arg=row.names(regioni_schz), main="Differenza totale sani-schz")
 }
 
@@ -127,3 +126,4 @@ print("IN positivo: Straight gyrus, Medial orbital gyrus, Subgenual frontal cort
 print("in negativo Lateral ventricle (excluding temporal horn)")
 
 graphics.off()
+

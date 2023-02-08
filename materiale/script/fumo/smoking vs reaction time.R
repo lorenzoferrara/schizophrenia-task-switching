@@ -1,5 +1,5 @@
 
-load("./materiale/workspaces/rec_2.RData")
+load("./materiale/workspaces/times.RData")
 load("./materiale/workspaces/fumo.RData")
 
 times = c(t_sani,t_schz) 
@@ -91,8 +91,8 @@ P
 P <- 1 - pchisq(T2, p)
 P  
 
-#RISULTATI: il tempo medio di ex smokers e non smoker è lo stesso
-# mentre il tempo medio di current smokers e non smokers è diverso
+#RISULTATI: il tempo medio di ex smokers e non smoker ? lo stesso
+# mentre il tempo medio di current smokers e non smokers ? diverso
 
 #########
 #lo rifaccio unendo ex_smokers e non smokers

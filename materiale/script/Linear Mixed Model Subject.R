@@ -6,7 +6,7 @@ setwd("G:/Il mio Drive/Brain Connectivity")
 ####
 
 setwd("./materiale")
-load("./workspaces/rec_2.RData")
+load("./workspaces/times.RData")
 load("./workspaces/recording_switch.RData")
 
 {library(nlmeU)
@@ -115,7 +115,7 @@ library(ggplot2)
 #PERCHE COSI MOSTRIAMO CHE IL NOSTRO PPORCCIO HA FATTO IL SUO LAVORO, I RISULTATI RISPECCHIANO 
 # CIO CHE CI ASPETTAVAMO RIGUARDO AL RANDOM EFFECT
 
-#POI VABBE RINFORZRà LA TEORIA DELLA VASTA VARIABILITà
+#POI VABBE RINFORZR? LA TEORIA DELLA VASTA VARIABILIT?
 
 ######################################################
 # Prediction from mixed model on a test observation from a subject not present in the training set:

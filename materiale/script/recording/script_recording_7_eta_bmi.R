@@ -1,7 +1,7 @@
 
 setwd("C:/Users/lofer/OneDrive/Documenti/GitHub/Brain-Connectivity")
 setwd("./materiale")
-load("./workspaces/rec_2.RData")
+load("./workspaces/times.RData")
 
 elenco_copia <- read.delim("./events recording/elenco_copia.txt", header=T)
 elenco <- read.delim("./events recording/elenco.txt", header=T)

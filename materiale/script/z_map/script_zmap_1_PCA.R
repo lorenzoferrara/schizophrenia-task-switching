@@ -2,7 +2,7 @@
 rm(list=ls())
 
 setwd("./materiale")
-load("./workspaces/zmap_creazione.RData")
+load("./workspaces/zmap.RData")
 
 N=36035
 ns=3
