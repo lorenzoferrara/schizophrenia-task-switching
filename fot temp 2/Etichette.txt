@@ -1,0 +1,66 @@
+Phenotype_taskswitch
+
+Costlong(Z): indice di "costo" negli eventi switch corretti quando i soggetti hanno avuto amplio tempo di preparazione
+
+Longcongnoswrt(Sotto-Z): Serve a calcolare costlong
+
+Longincongswrt(Sotto-Z): Serve a calcolare costlong
+
+Shortincongswrt(Sotto-Z): Serve a calcolare costlong
+
+Shortincongrnoswrt(Sotto-Z): Serve a calcolare costlong
+
+Interference(Z): indice di competizione delle risposte (prepotent response) solamente nei test corretti in presenza o meno di congruenza
+
+longcongswrt(Sotto-Z): serve a calcolare costlong
+
+longincongnoswrt(Sotto-Z) serve a calcolare costlong
+
+Trialcount: Numero di task completate (escluse quelle di prova)
+
+Accuracy: Percentuale di risposte corrette
+
+Costshort(Z): indice di "costo" negli eventi switch corretti quando i soggetti non hanno avuto tempo di preparatsi (Indice di task switching)
+
+----------
+
+Event recordings:  (ts = time series, dt = delta t)
+
+OnSet: inizio dell'evento (ts)
+
+Duration: durata dell'evento (dt)
+
+ITIOnSet: momento di inizio della "pausa" tra OnSet (ts)
+
+CueOnSet: quanto è avvenuto il cue (ridondante è uguale all'onset) (ts)
+
+CSIDuration: quanto tempo è durato il cue (ridondante è uguale all'onset) (dt)
+
+StimDuration: durata dello stimolo + reazione (dt)
+
+ColorShapeProbe: tipo di task
+
+Probe Recode: tipo di task COLOR=3 SHAPE=4 S=2 C=1 (inutile)
+
+Stimulus: tipo di stimolo
+
+StimulusColor: Colore dello stimpolo
+
+StimulusShape: Forma dello stimolo
+
+StimulusRecode: Codifica numerica dello stimolo (inutile)
+
+ButtonPressCode: Quale pulsante hanno premuto (inutile)
+
+RespRecode: (Ridondante) Codifica macchina del button press code 2=28 e 5=1
+
+ReactionTime: Tempo di reazione (dt)
+
+CSI: Variabile categorica sulla durata dell'intervallo di "preparazione"
+
+CorrectResp: Se hanno risposto correttamente o no
+
+Switching: Se c'è stato o meno switching
+
+Variabili noTriggerAdjust sono tutte ridondanti
+

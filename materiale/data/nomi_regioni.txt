@@ -1,0 +1,43 @@
+1; 2; Hippocampus
+3; 4; Amygdala
+5; 6; Anterior temporal lobe, medial part
+7; 8; Anterior temporal lobe, lateral part
+9; 10; Parahippocampal and ambient gyri
+11; 12; Superior temporal gyrus, posterior part
+13; 14; Middle and inferior temporal gyrus
+15; 16; Fusiform gyrus
+30; 31; Posterior temporal lobe
+82; 83; Superior temporal gyrus, anterior part
+17; 18; Cerebellum
+19; ;Brainstem
+20; 21; Insula
+24; 25; Cingulate gyrus (gyrus cinguli), anterior part
+26; 27; Cingulate gyurs (gyrus cinguli), posterior part
+28; 29; Middle frontal gyrus
+50; 51; Precentral gyrus
+52; 53; Straight gyrus
+54; 55; Anterior orbital gyrus
+56; 57; Inferior frontal gyrus
+58; 59; Superior frontal gyrus
+68; 69; Medial orbital gyrus
+70; 71; Lateral orbital gyrus
+72; 73; Posterior orbital gyrus
+76; 77; Subgenual frontal cortex
+78; 79; Subcallosal area
+80; 81; Pre-subgenual frontal cortex
+64; 65; Lingual gyrus
+66; 67; Cuneus
+22; 23; Lateral remainder of occipital lobe
+60; 61; Postcentral gyrus
+62; 63; Superior parietal gyrus
+32; 33; Inferiolateral remainder of parietal lobe
+34; 35; Caudate nucleus
+36; 37; Nucleus accumbens
+38; 39; Putamen
+40; 41; Thalamus
+42; 43; Pallidum
+44;  ; Corpus callosum
+74; 75; Substantia nigra
+45; 46; Lateral ventricle (excluding temporal horn)
+47; 48; Lateral ventricle, temporal horn
+49;  ; Third ventricle
