@@ -1,6 +1,5 @@
-setwd("G:/Il mio Drive/Brain Connectivity")
 
-###
+setwd("C:/Users/lofer/OneDrive/Documenti/GitHub/Brain-Connectivity")
 setwd("./materiale")
 load("./workspaces/rec_2.RData")
 
@@ -11,9 +10,6 @@ p <- read.delim("./data/participants.csv")
 lista_colori = c( rep("blue", 125), c(rep("red", 50)))
 
 library(ggplot2)
-
-hist(p$age, col = c( rep("blue", 125), c(rep("red", 50))))
-boxplot(p$age ~ p$diagnosis)
 
 {x11()
 pp=ggplot(data.frame(Diagnosis=p$diagnosis, Age=p$age),aes(x=Diagnosis,y=Age))+
@@ -34,17 +30,6 @@ summary(fit.age)
 fit.age=lm(times ~ p$age + p$diagnosis)
 summary(fit.age)
 coef.age=fit.age$coefficients
-
-{
-  #quartz()
-  x11()
-  plot(p$age, times, col=colors, xlab="Age",ylab="Reaction time", main="Results of Linear Regression")
-  abline(coef.age[1], coef.age[2], col="blue", lwd=2)
-  abline(coef.age[1] +coef.age[3], coef.age[2], col="red", lwd=2)
-  legend( "topright", col = c("blue", "red"), legend = c("Control", "Schizophrenia"), lty=1, lw=2)
-  dev.copy(png, "./plots/regressione_age.png")
-}
-
 
 {
   x11()
@@ -85,18 +70,6 @@ coef.bmi=fit.bmi$coefficients
 
 {
   x11()
-  #quartz()
-  plot(bmi, times, col=colors, xlab="BMI", ylab="Reaction time", main="Results of Linear Regression")
-  abline(coef.bmi[1], coef.bmi[2], col="blue", lwd=2)
-  abline(coef.bmi[1] +coef.bmi[3], coef.bmi[2], col="red", lwd=2)
-  legend( "topright", col = c("blue", "red"), legend = c("Control", "Schizophrenia"), lty=1, lw=2)
-}
-
-graphics.off()
-
-
-{
-  x11()
   pp=NULL
   # pp  = ggplot()+
   #   geom_smooth(aes(bmi,Reaction.Time),data=data.frame(bmi=bmi[1:125],Reaction.Time=times[1:125]),method ="lm",se=F,color="royalblue")+
@@ -115,78 +88,8 @@ graphics.off()
   pp
 }
 
-#____________________________
-
-min=min(bmi, na.rm=T)
-min
-
-logbmi = log(bmi-min+1)
-
-{
-  
-  fit.logbmi=lm(times ~ logbmi * p$diagnosis)
-  summary(fit.logbmi)
-  
-  fit.logbmi=lm(times ~ logbmi + p$diagnosis)
-  summary(fit.logbmi)
-  coef.logbmi=fit.logbmi$coefficients
-  
-  {
-    x11()
-    #quartz()
-    plot(logbmi, times, col=colors, xlab="log(BMI)", ylab="Reaction time", main="Results of Linear Regression")
-    abline(coef.logbmi[1], coef.logbmi[2], col="blue", lwd=2)
-    abline(coef.logbmi[1] +coef.logbmi[3], coef.logbmi[2], col="red", lwd=2)
-    legend( "topright", col = c("blue", "red"), legend = c("Control", "Schizophrenia"), lty=1, lw=2)
-  }
-}
-
-
-{
-  x11()
-  pp=NULL
-  # pp  = ggplot()+
-  #   geom_smooth(aes(bmi,Reaction.Time),data=data.frame(bmi=bmi[1:125],Reaction.Time=times[1:125]),method ="lm",se=F,color="royalblue")+
-  #   geom_smooth(aes(bmi1,Reaction.Time1),data=data.frame(bmi1=bmi[126:175],Reaction.Time1=times[126:175]),method ="lm",se=F,color="orange2")+
-  #   geom_point(aes(bmi,Reaction.Time,color="Control"),data=data.frame(bmi=bmi[1:125],Reaction.Time=times[1:125])) + 
-  #   geom_point(aes(bmi1,Reaction.Time1,color="Schz"),data=data.frame(bmi1=bmi[126:175],Reaction.Time1=times[126:175]),color="orange2")+
-  #   scale_colour_manual(values=c( "Control" = "royalblue", "Schz" = "orange2"), name = "Diagnosis")
-  pp  = ggplot(data=data.frame(logbmi=logbmi, Reaction.Time=times, diag=p$diagnosis),aes(logbmi,Reaction.Time))+
-    geom_point(aes(colour=p$diagnosis))+            
-    scale_colour_manual(values=c( "CONTROL" = "royalblue", "SCHZ" = "orange2"), name = "Diagnosis")+
-    geom_abline(aes(intercept=coef.logbmi[1],slope=coef.logbmi[2],color="CONTROL"))+
-    geom_abline(aes(intercept=coef.logbmi[1]+coef.logbmi[3],slope=coef.logbmi[2],color="SCHZ"))+
-    theme( axis.title = element_text(size=14, face = "bold"), legend.position = "", 
-           legend.text = element_text(size=11))
-  pp
-}
-
-
-{
- 
- pp=NULL
-  # pp  = ggplot()+
-  #   geom_smooth(aes(logbmi,Reaction.Time),data=data.frame(logbmi=logbmi[1:125],Reaction.Time=times[1:125]),method ="lm",se=F,color="royalblue")+
-  #   geom_smooth(aes(logbmi1,Reaction.Time1),data=data.frame(logbmi1=logbmi[126:175],Reaction.Time1=times[126:175]),method ="lm",se=F,color="orange2")+
-  #   geom_point(aes(logbmi,Reaction.Time,color="Control"),data=data.frame(logbmi=logbmi[1:125],Reaction.Time=times[1:125])) + 
-  #   geom_point(aes(logbmi1,Reaction.Time1,color="Schz"),data=data.frame(logbmi1=logbmi[126:175],Reaction.Time1=times[126:175]),color="orange2")+
-  #   scale_colour_manual(values=c( "Control" = "royalblue", "Schz" = "orange2"), name = "Diagnosis")
-  
-  pp  = ggplot(data=data.frame(logbmi, Reaction.Time=times, diag=p$diagnosis),aes(logbmi,Reaction.Time))+
-        geom_point(aes(colour=p$diagnosis))+            
-        scale_colour_manual(values=c( "CONTROL" = "royalblue", "SCHZ" = "orange2"), name = "Diagnosis")+
-        geom_abline(aes(intercept=coef.logbmi[1],slope=coef.logbmi[2],color="CONTROL"))+
-        geom_abline(aes(intercept=coef.logbmi[1]+coef.logbmi[3],slope=coef.logbmi[2],color="SCHZ"))
-        #guides(colour = guide_legend(override.aes = list(shape = 19)))
-  pp
-}
-
-dev.off()
-
 
 #1)____________________________________________
-x11()
-plot(bmi, times, col=colors)
 
 fit.doppia=lm(times ~ bmi * p$diagnosis * p$age)
 summary(fit.doppia)

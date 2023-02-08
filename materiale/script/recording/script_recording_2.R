@@ -1,6 +1,7 @@
 ##    Comparison of REACTION TIME between control and SCHIZOPHRENIC
 
-setwd("./materiale/SubjData")
+setwd("C:/Users/lofer/OneDrive/Documenti/GitHub/Brain-Connectivity")
+setwd("./materiale/events recording")
 
 elenco_copia <- read.delim("./elenco_copia.txt", header=T)
 elenco <- read.delim("./elenco.txt", header=T)
@@ -11,7 +12,7 @@ t_schz = c()
 #CARICO UNO AD UNO I RECORDINGS DEI SOGGETTI
 for ( i in 1:175) {
   val <- elenco$v[i]
-  s = read.csv(val, sep="")
+  s = read.csv(val)
 
   s$ReactionTime = as.numeric(s$ReactionTime)
   meantime <- mean(s$ReactionTime, na.rm=T)
@@ -118,4 +119,4 @@ IC.differenza_tempi <- c(t_control.mean[1]-t_schz.mean[1]-sqrt(cfr.chisq*Sp*(1/n
 c('inf','mid','sup')                        
 -IC.differenza_tempi
 
-
+save(list = c("t_control", "t_schz"), file = "../workspaces/times.RData")

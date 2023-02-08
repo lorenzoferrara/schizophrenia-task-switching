@@ -1,11 +1,7 @@
 
-##    IN QUESTO SCRIPT cerco un pattern nei tempi di risposta.
-##    voglio controllare se migliorano facendo tanti trials
-##
-setwd("G:/Il mio Drive/Brain Connectivity")
+##    In this script I am looking for a pattern in response times, I want to check if they improve by doing lots of trials
 
-##
-
+setwd("C:/Users/lofer/OneDrive/Documenti/GitHub/Brain-Connectivity")
 setwd("./materiale/events recording")
 
 elenco_copia <- read.delim("./elenco_copia.txt", header=T)
@@ -16,10 +12,10 @@ sequenza_tempi_sani = rep(0,96)
 sequenza_tempi_schz = rep(0,96)
 numero_sani= rep(0,96)
 numero_schz= rep(0,96)
-#CARICO UNO AD UNO I RECORDINGS DEI SOGGETTI
+
 for ( i in 1:175) {
   val <- elenco$v[i]
-  s = read.delim(paste("./", val, sep="" ))
+  s = read.csv(val, sep="")
   s$ReactionTime = as.numeric(s$ReactionTime)
   if (p$diagnosis[i]=="CONTROL"){
     for (j in 1:96){
@@ -59,7 +55,6 @@ summary(fit_schz)
 
 {
   x11()
-  #x11(width=400, height = 300)
   par(mfrow=c(2,1))
   plot( 1:96, sequenza_tempi_sani$tempi, type="l", lty=1, lwd=1.5, xlab="i-th trial", ylab="Reaction time", main = "Control")
   abline(fit_sani$coefficients[1], fit_sani$coefficients[2], col="red")
