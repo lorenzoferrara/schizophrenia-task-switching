@@ -1,35 +1,32 @@
 ##    ANALISI SUI DATI DEL BARRATT TEST
 
-setwd("G:/Il mio Drive/Brain Connectivity")
-
-#________________________________________________________________________
-#VISUALIZZO DATI
+library("ggplot2")
 
 colors=c(rep("blue",125),rep("red",50))
 
-load("G:/Il mio Drive/Brain Connectivity/materiale/workspaces/rec_2.RData")
+load("./materiale/workspaces/rec_2.RData")
 setwd("./materiale/script")
 part_list <- read.delim("../data/participants.csv")
 barratt_raw_data <- read.csv("./barratt/barratt_raw_data.txt", sep="")
 score=barratt_raw_data$total_score
-score_sani=score[1:125]
+score_control=score[1:125]
 score_schz = score[126:175]
 
 {
-  M=max(max(score_sani), max(score_schz))
+  M=max(max(score_control), max(score_schz))
     num=13
   a <- seq(0, M, M/(num))
-  table_sani_score = rep(0,num)
+  table_control_score = rep(0,num)
   table_schz_score = rep(0,num)
   
-  for (j in 1:length(score_sani)){
+  for (j in 1:length(score_control)){
     for (i in 1:num){
-      if(score_sani[j] > a[i] & score_sani[j] < a[i+1]){
-        table_sani_score[i] = table_sani_score[i] + 1
+      if(score_control[j] > a[i] & score_control[j] < a[i+1]){
+        table_control_score[i] = table_control_score[i] + 1
       }
     }
   }
-  table_sani_score=table_sani_score/length(score_sani)
+  table_control_score=table_control_score/length(score_control)
   
   for (j in 1:length(score_schz)){
     for (i in 1:num){
@@ -42,19 +39,19 @@ score_schz = score[126:175]
 }
 nomi=round(a[1:num], digits=1)
 {
-  m=min(min(table_sani_score), min(table_schz_score))
-  M=max(max(table_sani_score), max(table_schz_score))
+  m=min(min(table_control_score), min(table_schz_score))
+  M=max(max(table_control_score), max(table_schz_score))
   x11()
   par(mfrow=c(1,2))
-  barplot(table_sani_score, names.arg = nomi, ylim = c(m, M), main="Control",col = "lightblue1")
+  barplot(table_control_score, names.arg = nomi, ylim = c(m, M), main="Control",col = "lightblue1")
   barplot(table_schz_score, names.arg = nomi, ylim = c(m, M), main="Schizophrenia",col = "tomato3")
 }
 color=c("lightskyblue1","tomato3")
 {
-  m=min(min(score_schz), min(score_sani))
-  M=max(max(score_schz), max(score_sani))
+  m=min(min(score_schz), min(score_control))
+  M=max(max(score_schz), max(score_control))
   x11()
-  boxplot(score_sani,score_schz, names = c("Control","Schizophrenia"),main="Barratt Scores", col= color,ylim = c(m, M))
+  boxplot(score_control,score_schz, names = c("Control","Schizophrenia"),main="Barratt Scores", col= color,ylim = c(m, M))
 }
 
 {x11()
@@ -69,18 +66,18 @@ pp
 #________________________________________________________________________
 # Test sulle medie per Barratt scores
 {
-  n1 <- length(score_sani)[1] # n1=3
+  n1 <- length(score_control)[1] # n1=3
   n2 <- length(score_schz)[1] # n2=4
   
   p=1
   
-  score_sani.mean <- mean(score_sani, na.rm=T)
+  score_control.mean <- mean(score_control, na.rm=T)
   score_schz.mean <- mean(score_schz, na.rm=T)
-  score_sani.cov  <-  var(score_sani, na.rm=T)
+  score_control.cov  <-  var(score_control, na.rm=T)
   score_schz.cov  <-  var(score_schz, na.rm=T)
-  Sp      <- ((n1-1)*score_sani.cov + (n2-1)*score_schz.cov)/(n1+n2-2)
+  Sp      <- ((n1-1)*score_control.cov + (n2-1)*score_schz.cov)/(n1+n2-2)
   # we compare the matrices
-  list(S1=score_sani.cov, S2=score_schz.cov, Spooled=Sp)
+  list(S1=score_control.cov, S2=score_schz.cov, Spooled=Sp)
   
   # Test H0: mu1 == mu2  vs  H1: mu1 != mu2
   # i.e.,
@@ -90,7 +87,7 @@ pp
   delta.0 <- rep(0,p) #tutti zero
   Spinv   <- solve(Sp)
   
-  T2 <- n1*n2/(n1+n2) * (score_sani.mean-score_schz.mean-delta.0) %*% Spinv %*% (score_sani.mean-score_schz.mean-delta.0)
+  T2 <- n1*n2/(n1+n2) * (score_control.mean-score_schz.mean-delta.0) %*% Spinv %*% (score_control.mean-score_schz.mean-delta.0)
   
   cfr.chisq <- qchisq(1-alpha,p)
   T2 < cfr.chisq
@@ -100,11 +97,11 @@ P
 
 #___________________________________
 
-var.test(score_sani, score_schz)
-t.test(score_sani, score_schz, alternative = "greater", var.equal = F)
+var.test(score_control, score_schz)
+t.test(score_control, score_schz, alternative = "greater", var.equal = F)
 #________________________________________________________________________
 # Shapiro test
-shapiro.test(score_sani)
+shapiro.test(score_control)
 shapiro.test(score_schz)
 
 
@@ -112,7 +109,7 @@ shapiro.test(score_schz)
 #LEVENE TEST SULLE VARIANZE
 
 library("lawstat")
-dati=c(score_sani, score_schz)
+dati=c(score_control, score_schz)
 gruppi=factor( c( rep("Control", 125), rep("Schz", 50)))
 
 levene.test(dati, gruppi, location ="mean")
@@ -167,7 +164,7 @@ pp
 
 #________________________________________________________________________
 load("../workspaces/rec_2.RData")
-times = c(t_sani,t_schz) 
+times = c(t_control,t_schz) 
 ## Plot di RT e BIS 
 
 colors=c(rep("blue",125),rep("red",50))
@@ -198,16 +195,16 @@ coef = step.model$coefficients
 ## Plot di RT e BIS 
 # prendi i dati da script_recording_2.R in Lorenzo
 colors=c(rep("blue",125),rep("red",50))
-plot(barratt_raw_data$total_score,c(t_sani,t_schz),col=colors, xlab="BIS total score",ylab="Reaction Time")
+plot(barratt_raw_data$total_score,c(t_control,t_schz),col=colors, xlab="BIS total score",ylab="Reaction Time")
 
 colors=c(rep("blue",125),rep("red",50))
-plot(barratt_raw_data$NON_PLANNING,c(t_sani,t_schz),col=colors, xlab="BIS NON_PLANNNING score",ylab="Reaction Time")
+plot(barratt_raw_data$NON_PLANNING,c(t_control,t_schz),col=colors, xlab="BIS NON_PLANNNING score",ylab="Reaction Time")
 abline(coef[1], coef[2])
 colors=c(rep("blue",125),rep("red",50))
-plot(barratt_raw_data$MOTOR,c(t_sani,t_schz),col=colors, xlab="BIS MOTOR score",ylab="Reaction Time")
+plot(barratt_raw_data$MOTOR,c(t_control,t_schz),col=colors, xlab="BIS MOTOR score",ylab="Reaction Time")
 
 colors=c(rep("blue",125),rep("red",50))
-plot(barratt_raw_data$ATTENTIONAL,c(t_sani,t_schz),col=colors, xlab="BIS ATTENTIONAL score",ylab="Reaction Time")
+plot(barratt_raw_data$ATTENTIONAL,c(t_control,t_schz),col=colors, xlab="BIS ATTENTIONAL score",ylab="Reaction Time")
 
 
 
