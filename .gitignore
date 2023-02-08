@@ -30,7 +30,7 @@ Thesis_bibliography.bib
 *_files/
 *.nb.html
 *.csv
-*.ppt
+*.pptx
 *.docx
 
 # OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3

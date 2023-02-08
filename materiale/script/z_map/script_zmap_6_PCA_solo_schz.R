@@ -48,8 +48,8 @@ for (i in 1:10) {
 }
 
 setwd("../../")
-nomi_regioni <- read.csv("./data/nomi_regioni.txt", header=FALSE, sep=";")
-nomi_regioni$V2[is.na(nomi_regioni$V2)]=0
+names_regions <- read.csv("./data/names_regions.txt", header=FALSE, sep=";")
+names_regions$V2[is.na(names_regions$V2)]=0
 
 pc=directions_schz[,]
 n_pcs=4
@@ -74,9 +74,9 @@ alti_pc1 = which(dir1_schz > threshold)
 #plot(FEM(zmap_schz_first3pc[1,], FEMbasis))
 
 for ( i in alti_pc1 ){
-  for ( j in 1:dim(nomi_regioni)[1]){
-    if( i == nomi_regioni[j,1] || i == nomi_regioni[j,2]){
-      print( paste( round(dir1_schz[i], digits = 3), ": Region", i, "is", nomi_regioni[j,3], sep=" "))
+  for ( j in 1:dim(names_regions)[1]){
+    if( i == names_regions[j,1] || i == names_regions[j,2]){
+      print( paste( round(dir1_schz[i], digits = 3), ": Region", i, "is", names_regions[j,3], sep=" "))
     }
   }
 }
@@ -103,9 +103,9 @@ alti_pc2 = which( abs(dir2_schz - mean) > threshold)
 
 {print("PC2")
   for ( i in alti_pc2 ){
-    for ( j in 1:dim(nomi_regioni)[1]){
-      if( i == nomi_regioni[j,1] || i == nomi_regioni[j,2]){
-        print( paste( round(dir2_schz[i], digits = 2), ": Region", i, "is", nomi_regioni[j,3], sep=" "))
+    for ( j in 1:dim(names_regions)[1]){
+      if( i == names_regions[j,1] || i == names_regions[j,2]){
+        print( paste( round(dir2_schz[i], digits = 2), ": Region", i, "is", names_regions[j,3], sep=" "))
       }
     }
   }
@@ -123,9 +123,9 @@ plot(FEM(zmap_schz_first3pc[3,], FEMbasis))
 
 print("PC3")
 for ( i in alti_pc3 ){
-  for ( j in 1:dim(nomi_regioni)[1]){
-    if( i == nomi_regioni[j,1] || i == nomi_regioni[j,2]){
-      print( paste( round(dir3_schz[i], digits = 2), ": Region", i, "is", nomi_regioni[j,3], sep=" "))
+  for ( j in 1:dim(names_regions)[1]){
+    if( i == names_regions[j,1] || i == names_regions[j,2]){
+      print( paste( round(dir3_schz[i], digits = 2), ": Region", i, "is", names_regions[j,3], sep=" "))
     }
   }
 }
@@ -152,9 +152,9 @@ alti_pcult = which( abs(dir_ult_schz - mean) > threshold)
 
 print("PCult")
 for ( i in alti_pcult ){
-  for ( j in 1:dim(nomi_regioni)[1]){
-    if( i == nomi_regioni[j,1] || i == nomi_regioni[j,2]){
-      print( paste( round(dir_ult_schz[i], digits = 2), ": Region", i, "is", nomi_regioni[j,3], sep=" "))
+  for ( j in 1:dim(names_regions)[1]){
+    if( i == names_regions[j,1] || i == names_regions[j,2]){
+      print( paste( round(dir_ult_schz[i], digits = 2), ": Region", i, "is", names_regions[j,3], sep=" "))
     }
   }
 }
@@ -172,9 +172,9 @@ alti_pcult = which( abs(dir_penult_schz - mean) > threshold)
 
 print("PCpenult")
 for ( i in alti_pcult ){
-  for ( j in 1:dim(nomi_regioni)[1]){
-    if( i == nomi_regioni[j,1] || i == nomi_regioni[j,2]){
-      print( paste( round(dir_penult_schz[i], digits = 2), ": Region", i, "is", nomi_regioni[j,3], sep=" "))
+  for ( j in 1:dim(names_regions)[1]){
+    if( i == names_regions[j,1] || i == names_regions[j,2]){
+      print( paste( round(dir_penult_schz[i], digits = 2), ": Region", i, "is", names_regions[j,3], sep=" "))
     }
   }
 }
@@ -192,9 +192,9 @@ alti_pcult = which( abs(dir_terzult_schz - mean) > threshold)
 
 print("PCterzult")
 for ( i in alti_pc_terzult ){
-  for ( j in 1:dim(nomi_regioni)[1]){
-    if( i == nomi_regioni[j,1] || i == nomi_regioni[j,2]){
-      print( paste( round(dir_terzult_schz[i], digits = 2), ": Region", i, "is", nomi_regioni[j,3], sep=" "))
+  for ( j in 1:dim(names_regions)[1]){
+    if( i == names_regions[j,1] || i == names_regions[j,2]){
+      print( paste( round(dir_terzult_schz[i], digits = 2), ": Region", i, "is", names_regions[j,3], sep=" "))
     }
   }
 }

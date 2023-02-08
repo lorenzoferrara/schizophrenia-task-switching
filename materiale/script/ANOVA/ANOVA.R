@@ -1,19 +1,12 @@
 require(data.table)
 require(tidyr)
-#setwd("C:/Users/Costanza/Downloads/SubjData/SubjData")
-setwd("G:/Il mio Drive/Brain Connectivity")
 
+setwd("./materiale/SubjData")
 setwd("./materiale/SubjData")
 
 # import recordings file names and participants.csv
 BigList = list.files(pattern="*.tsv")
 BigList
-
-if(F){
-elenco_copia <- read.delim("./elenco_copia.txt", header=T)
-elenco <- read.delim("./elenco.txt", header=T)
-BigList = elenco$v
-}
 
 participants<-read.table("../data/participants.csv", header = T)
 p<-read.table("../data/participants.csv", header = T)
@@ -24,7 +17,7 @@ ii=0
 numero_switch=rep(0, 175)
 for (individui in BigList){
   ii=ii+1
-  da_leggere<-read.table(individui)   # import sub-*****_task-taskswitch_events.tsv in SubjData
+  da_leggere<-read.table(individui, header = T)   # import sub-*****_task-taskswitch_events.tsv in SubjData
   da_leggere$ReactionTime<-as.numeric(da_leggere$ReactionTime)    
   
   numero_switch[ii] = sum(da_leggere$Switching == "SWITCH")
@@ -57,8 +50,6 @@ for (individui in BigList){
   # create a new column in participants with the mean RT of INCONGRUENT and NO SWITCH trials of individuo
   participants$Incongruent_Noswitch[ii]<-mean(righe$ReactionTime, na.rm = TRUE)
 }
-## COMMENTI: 1. quando fa il primo giro di for, nelle colonne create viene inserito per tutte le righe il mean RT del primo individui in BigList. va bene? 
-##           2. prima nel ciclo for veniva inizalizzata dopo ogni comando una variabile (media_singola<-NULL) senza mai essere usata quindil'ho eliminata. Serviva a qualcosa?
 
 # BOXPLOT of the mean of each pair Congruent/Incongruent - Switch/NoSwitch relatively to the disgnosis
 colore <- rep(rainbow(3), each = 50)

@@ -7,8 +7,8 @@ setwd("G:/Il mio Drive/Brain Connectivity")
 load("./materiale/workspaces/zmap_creazione.RData")
 setwd("./materiale")
 
-nomi_regioni <- read.csv("./data/nomi_regioni.txt", header=FALSE, sep=";")
-nomi_regioni$V2[is.na(nomi_regioni$V2)]=0
+names_regions <- read.csv("./data/names_regions.txt", header=FALSE, sep=";")
+names_regions$V2[is.na(names_regions$V2)]=0
 
 
 massimo = max(directions[,1:3])
@@ -58,9 +58,9 @@ if(F){
 }
 
 for ( i in alti_pc1 ){
-  for ( j in 1:dim(nomi_regioni)[1]){
-    if( i == nomi_regioni[j,1] || i == nomi_regioni[j,2]){
-      print( paste( round(dir1[i], digits = 3), ": Region", i, "is", nomi_regioni[j,3], sep=" "))
+  for ( j in 1:dim(names_regions)[1]){
+    if( i == names_regions[j,1] || i == names_regions[j,2]){
+      print( paste( round(dir1[i], digits = 3), ": Region", i, "is", names_regions[j,3], sep=" "))
     }
   }
 }
@@ -116,9 +116,9 @@ if(F){
 }
 
 for ( i in alti_pc1 ){
-  for ( j in 1:dim(nomi_regioni)[1]){
-    if( i == nomi_regioni[j,1] || i == nomi_regioni[j,2]){
-      print( paste( round(dir1[i], digits = 3), ": Region", i, "is", nomi_regioni[j,3], sep=" "))
+  for ( j in 1:dim(names_regions)[1]){
+    if( i == names_regions[j,1] || i == names_regions[j,2]){
+      print( paste( round(dir1[i], digits = 3), ": Region", i, "is", names_regions[j,3], sep=" "))
     }
   }
 }
@@ -160,9 +160,9 @@ test_result
 
 {print("Region 2")
 for ( i in alti_pc2 ){
-  for ( j in 1:dim(nomi_regioni)[1]){
-    if( i == nomi_regioni[j,1] || i == nomi_regioni[j,2]){
-      print( paste( round(dir2[i], digits = 3), ": Region", i, "is", nomi_regioni[j,3], sep=" "))
+  for ( j in 1:dim(names_regions)[1]){
+    if( i == names_regions[j,1] || i == names_regions[j,2]){
+      print( paste( round(dir2[i], digits = 3), ": Region", i, "is", names_regions[j,3], sep=" "))
     }
    }
   }
@@ -208,9 +208,9 @@ test_result
 
 print("Region 3")
 for ( i in alti_pc3 ){
-  for ( j in 1:dim(nomi_regioni)[1]){
-    if( i == nomi_regioni[j,1] || i == nomi_regioni[j,2]){
-      print( paste( round(dir3[i], digits = 3), ": Region", i, "is", nomi_regioni[j,3], sep=" "))
+  for ( j in 1:dim(names_regions)[1]){
+    if( i == names_regions[j,1] || i == names_regions[j,2]){
+      print( paste( round(dir3[i], digits = 3), ": Region", i, "is", names_regions[j,3], sep=" "))
     }
   }
 }

@@ -11,13 +11,8 @@ ordered_dir_3<-order(directions[,3])
 plot(directions[ordered_dir_3,3])
 ##
 
-# install.packages("ClusterR") voi fatelo però
-# install.packages("cluster") as above
-
-# Loading package
 library(ClusterR)
 library(cluster)
-
 
 #### gruppi da hammers_mith_atlas
 temporal_lobe<-c(1,2,3,4,5,6,7,8,9,10,11, 12, 13, 14, 15, 16, 30, 31 ,82,83)

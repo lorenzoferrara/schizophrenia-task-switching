@@ -69,10 +69,10 @@ alti_pc1 = which( disegno_load > M_loads+2*SD_loads | disegno_load < M_loads-2*S
 
 for ( i in alti_pc1 ){
   for ( j in 1:43){
-    if (is.na(nomi_regioni[j,1])) {nomi_regioni[j,1]=0}
-    if (is.na(nomi_regioni[j,2])) {nomi_regioni[j,2]=0}
-    if( i == nomi_regioni[j,1] || i == nomi_regioni[j,2]){
-      print( paste( round(disegno_load[i], digits = 3), ": Region", i, "is", nomi_regioni[j,3], sep=" "))
+    if (is.na(names_regions[j,1])) {names_regions[j,1]=0}
+    if (is.na(names_regions[j,2])) {names_regions[j,2]=0}
+    if( i == names_regions[j,1] || i == names_regions[j,2]){
+      print( paste( round(disegno_load[i], digits = 3), ": Region", i, "is", names_regions[j,3], sep=" "))
     }
   }
 }
@@ -97,10 +97,10 @@ alti_pc1 = which( disegno_load > M_loads+1.75*SD_loads | disegno_load < M_loads-
 
 for ( i in alti_pc1 ){
   for ( j in 1:43){
-    if (is.na(nomi_regioni[j,1])) {nomi_regioni[j,1]=0}
-    if (is.na(nomi_regioni[j,2])) {nomi_regioni[j,2]=0}
-    if( i == nomi_regioni[j,1] || i == nomi_regioni[j,2]){
-      print( paste( round(disegno_load[i], digits = 3), ": Region", i, "is", nomi_regioni[j,3], sep=" "))
+    if (is.na(names_regions[j,1])) {names_regions[j,1]=0}
+    if (is.na(names_regions[j,2])) {names_regions[j,2]=0}
+    if( i == names_regions[j,1] || i == names_regions[j,2]){
+      print( paste( round(disegno_load[i], digits = 3), ": Region", i, "is", names_regions[j,3], sep=" "))
     }
   }
 }
@@ -130,10 +130,10 @@ alti_pc1 = which( disegno_load > M_loads+1.75*SD_loads | disegno_load < M_loads-
 
 for ( i in alti_pc1 ){
   for ( j in 1:43){
-    if (is.na(nomi_regioni[j,1])) {nomi_regioni[j,1]=0}
-    if (is.na(nomi_regioni[j,2])) {nomi_regioni[j,2]=0}
-    if( i == nomi_regioni[j,1] || i == nomi_regioni[j,2]){
-      print( paste( round(disegno_load[i], digits = 3), ": Region", i, "is", nomi_regioni[j,3], sep=" "))
+    if (is.na(names_regions[j,1])) {names_regions[j,1]=0}
+    if (is.na(names_regions[j,2])) {names_regions[j,2]=0}
+    if( i == names_regions[j,1] || i == names_regions[j,2]){
+      print( paste( round(disegno_load[i], digits = 3), ": Region", i, "is", names_regions[j,3], sep=" "))
     }
   }
 }
@@ -170,10 +170,10 @@ alti_pc1 = which( disegno_load > M_loads+1.75*SD_loads | disegno_load < M_loads-
 
 for ( i in alti_pc1 ){
   for ( j in 1:43){
-    if (is.na(nomi_regioni[j,1])) {nomi_regioni[j,1]=0}
-    if (is.na(nomi_regioni[j,2])) {nomi_regioni[j,2]=0}
-    if( i == nomi_regioni[j,1] || i == nomi_regioni[j,2]){
-      print( paste( round(disegno_load[i], digits = 3), ": Region", i, "is", nomi_regioni[j,3], sep=" "))
+    if (is.na(names_regions[j,1])) {names_regions[j,1]=0}
+    if (is.na(names_regions[j,2])) {names_regions[j,2]=0}
+    if( i == names_regions[j,1] || i == names_regions[j,2]){
+      print( paste( round(disegno_load[i], digits = 3), ": Region", i, "is", names_regions[j,3], sep=" "))
     }
   }
 }
@@ -221,7 +221,7 @@ media_pc[2,4]<-mean(zmap.pc$scores[126:175,4])
 colnames(media_pc)<-c('pc 1','pc 2', 'pc 3', 'pc 4')
 
 
-# non normalità
+# non normalit?
 
 alpha<-0.05
 pval<-matrix(0,4,1)
