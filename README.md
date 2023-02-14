@@ -1,17 +1,19 @@
-<h1 align="left"> Study about the impact of context processing deficits on task-switching performance in schizophrenia</h1>
+<h1 align="left"> Study about the impact of deficits in task-switching performance in Schizophrenia, with attention to brain connectivity maps</h1>
 
 <h4 align="left">Project for the course of Applied Statistics at Politecnico di Milano, 2021/2022</h4>
 
+ <!--
 <p align="left"> Team members:
 <ul>
   <li>Lorenzo Ferrara (<a href="https://github.com/lorenzoferrara/" target="_blank">Github</a>, <a href="https://www.linkedin.com/in/lorenzo-ferrara-567211244/" target="_blank">Linkedin</a>) </li> 
   <li> coso </li>
 </ul>
 </p>
+-->
 
 <h3 align="left">Abstract of the study-case:</h3>
 <p align="left">One of the regions of the brain by schizophrenia is the dorsolateral prefrontal cortex (DLPFC) which has been associated to the ability of task switching (TS). Nevertheless, literature suggests that people affected by schizophrenia (SCHZ) do not perform worse than neuro-typical ones in a task switching test: SCHZ are simply slower in TS, but reach the same performances of CTRL. This may suggest the existence of some unknown underlying compensation mechanism in the SCHZ’s brain.
-The objective of our project: we wanted to the differences in brain activity between SCHZ and CTRL during TS,  considering the results of the 175 participants subjected to the following test.</p>
+The objective of our project: we wanted to the differences in brain activity between SCHZ and CTRL during TS, considering the results of the 175 participants subjected to the following test.</p>
 
 <h3 align="left">The experiment:</h3>
 <p align="left">While their brain was scanned, each subject was presented with a series of geometric shapes and asked to identify either the color or the shape of the image shown. On 25% of trials the instructions switched, such that participants were instructed to switch from responding from shape to color, or vice versa.</p>
