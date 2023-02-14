@@ -1,4 +1,4 @@
-<h1 align="left"> Study about the impact of context processing deficits on task-switching performance in schizophrenia</h1>
+<h1 align="left"> Study about the impact of context processing deficits on task-switching performance in Schizophrenia</h1>
 
 <h4 align="left">Project for the course of Applied Statistics at Politecnico di Milano, 2021/2022</h4>
 
