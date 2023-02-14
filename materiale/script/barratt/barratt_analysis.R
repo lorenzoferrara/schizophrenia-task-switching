@@ -72,25 +72,6 @@ pp
 P <- 1 - pchisq(T2, p)
 P  
 
-#___________________________________
-
-var.test(score_control, score_schz)
-t.test(score_control, score_schz, alternative = "greater", var.equal = F)
-#________________________________________________________________________
-# Shapiro test
-shapiro.test(score_control)
-shapiro.test(score_schz)
-
-
-#________________________________________________________________________
-#LEVENE TEST SULLE VARIANZE
-
-library("lawstat")
-dati=c(score_control, score_schz)
-gruppi=factor( c( rep("Control", 125), rep("Schz", 50)))
-
-levene.test(dati, gruppi, location ="mean")
-
 #________________________________________________________________________
 
 load("../workspaces/times.RData")

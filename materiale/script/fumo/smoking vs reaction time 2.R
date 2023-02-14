@@ -1,7 +1,8 @@
-load("./materiale/workspaces/times.RData")
-load("./materiale/workspaces/fumo.RData")
 
-times = c(t_sani,t_schz) 
+load("./materiale/workspaces/times.RData")
+load("./materiale/workspaces/smoking.RData")
+
+times = c(t_control,t_schz) 
 
 times_ex
 times_cur

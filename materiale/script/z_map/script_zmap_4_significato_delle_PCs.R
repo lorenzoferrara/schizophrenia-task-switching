@@ -2,14 +2,10 @@
 library(gridExtra)
 library(ggplot2)
 
-setwd("G:/Il mio Drive/Brain Connectivity")
+setwd("~/GitHub/Brain-Connectivity")
 
 load("./materiale/workspaces/zmap.RData")
 setwd("./materiale")
-
-names_regions <- read.csv("./data/names_regions.txt", header=FALSE, sep=";")
-names_regions$V2[is.na(names_regions$V2)]=0
-
 
 massimo = max(directions[,1:3])
 minimo = min(directions[,1:3])
