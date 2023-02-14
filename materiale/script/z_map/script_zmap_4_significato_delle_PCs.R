@@ -2,8 +2,6 @@
 library(gridExtra)
 library(ggplot2)
 
-setwd("~/GitHub/Brain-Connectivity")
-
 load("./materiale/workspaces/zmap.RData")
 setwd("./materiale")
 

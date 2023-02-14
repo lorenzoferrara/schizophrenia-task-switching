@@ -1,40 +1,39 @@
 
-#prendi con_reg da "script_zmap
-setwd("G:/Il mio Drive/Brain Connectivity/")
-
 setwd("./materiale")
 load("./workspaces/zmap.RData")
+load("./workspaces/connectivity.map.RData")
 
-con_reg_sani=colMeans(con_reg[1:125,])
+con_reg_control=colMeans(con_reg[1:125,])
 con_reg_schz=colMeans(con_reg[126:175,])
 
-zmap_sani=rep(0, N)
-zmap_schz=rep(0, N)
-for( nodo in 1:N ){
-  zona = labels[nodo]
+## Mean of the connectivity values on each node, in the control group and in the schizophrenic group
+zmap_control = rep(0, N)
+zmap_schz = rep(0, N)
+for( node in 1:N ){
+  zona = labels[node]
   if(zona != 0){
-    zmap_sani[nodo] = con_reg_sani[zona]
-    zmap_schz[nodo] = con_reg_schz[zona]
+    zmap_control[node] = con_reg_control[zona]
+    zmap_schz[node] = con_reg_schz[zona]
   }
 }
 
 {
 library(fdaPDE)
 library(rgl)
-FEM_ctrl = FEM(zmap_sani, FEMbasis)
+FEM_ctrl = FEM(zmap_control, FEMbasis)
 FEM_schz = FEM(zmap_schz, FEMbasis)
-FEM_diff = FEM(zmap_schz - zmap_sani, FEMbasis)
+FEM_diff = FEM(zmap_schz - zmap_control, FEMbasis)
 
 if(F){
 setwd("./script/z_map")
-write.vtu(FEM_ctrl, file = 'zmap_sani.vtu')
+write.vtu(FEM_ctrl, file = 'zmap_control.vtu')
 write.vtu(FEM_schz, file = 'zmap_schz.vtu')
 write.vtu(FEM_diff, file = 'zmap_diff.vtu')
 setwd("../..")
 }
 
 plot(FEM_ctrl)
-rgl.snapshot("./plots/zmap_sani.png", fmt="png")
+rgl.snapshot("./plots/zmap_control.png", fmt="png")
 plot(FEM_schz)
 rgl.snapshot("./plots/zmap_schz.png", fmt="png")
 plot(FEM_diff)
@@ -49,11 +48,11 @@ pc=directions[,]
 n_pcs=3
 
 zmap_first3pc=matrix(0, nrow = n_pcs, ncol = N)
-for( nodo in 1:N ){
-  zona = labels[nodo]
+for( node in 1:N ){
+  zona = labels[node]
   if(zona != 0){
     for( ind in 1:n_pcs){
-      zmap_first3pc[ind, nodo] = pc[zona, ind]
+      zmap_first3pc[ind, node] = pc[zona, ind]
     }
   }
 }
@@ -73,10 +72,10 @@ for( i in 1:n_pcs ){
 pc1_modificata = rep(0,N)
 medie<-colMeans(con_reg)
 ind=1
-for( nodo in 1:N ){
-  zona = labels[nodo]
+for( node in 1:N ){
+  zona = labels[node]
   if(zona != 0){
-    pc1_modificata[nodo] = pc[zona, ind] - medie[zona]
+    pc1_modificata[node] = pc[zona, ind] - medie[zona]
     }
   }
 setwd("./script/z_map")

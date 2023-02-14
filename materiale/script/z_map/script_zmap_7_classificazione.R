@@ -1,8 +1,4 @@
 
-setwd('G:/Il mio Drive/Brain Connectivity/')
-
-###
-
 setwd("./materiale")
 load("./workspaces/zmap.RData")
 elenco_copia <- read.delim("./events recording/elenco_copia.txt", header=T)
