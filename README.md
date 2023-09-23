@@ -2,14 +2,14 @@
 
 <h4 align="left">Project for the course of Applied Statistics at Politecnico di Milano, 2021/2022</h4>
 
- <!--
 <p align="left"> Team members:
 <ul>
+  <li> Erica Bistacchia </li>
+  <li> Costanza Cantalini </li>
   <li>Lorenzo Ferrara (<a href="https://github.com/lorenzoferrara/" target="_blank">Github</a>, <a href="https://www.linkedin.com/in/lorenzo-ferrara-567211244/" target="_blank">Linkedin</a>) </li> 
-  <li> coso </li>
+  <li> Scott Pesenti </li>
 </ul>
 </p>
--->
 
 <h3 align="left">Abstract of the study-case:</h3>
 <p align="left">One of the regions of the brain by schizophrenia is the dorsolateral prefrontal cortex (DLPFC) which has been associated to the ability of task switching (TS). Nevertheless, literature suggests that people affected by schizophrenia (SCHZ) do not perform worse than neuro-typical ones in a task switching test: SCHZ are simply slower in TS, but reach the same performances of CTRL. This may suggest the existence of some unknown underlying compensation mechanism in the SCHZ’s brain.
