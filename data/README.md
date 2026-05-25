@@ -14,5 +14,3 @@ Historical project data has been migrated into this structure.
 - `data/raw/project-data/`: atlas and project data files
 - `data/raw/events-recording/`: subject event files
 - `data/processed/workspaces/`: saved `.RData` workspaces
-
-`2 - materiale/` is kept as a compatibility path through links.

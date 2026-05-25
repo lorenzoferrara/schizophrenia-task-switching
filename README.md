@@ -26,11 +26,9 @@ Participants performed a task-switching paradigm during fMRI acquisition. On eac
 - `analysis/`: normalized workspace for current scripts/notebooks
 - `data/`: normalized data area (`raw`, `processed`, `external`)
 - `results/`: figures, tables, and presentations
-- `docs/`: project details and migration notes
+- `docs/`: project details
 - `references/`: papers and reference material
 - `archive/`: legacy assets kept for traceability
-
-Legacy path compatibility is preserved under `2 - materiale/` via links, but content now lives in the normalized folders.
 
 Current canonical locations:
 - `analysis/scripts/`: R analysis scripts (legacy + final variants)
@@ -49,5 +47,3 @@ A practical cleanup path is:
 
 ## Where to Start
 See the scripts guide at `analysis/scripts/README.md` for a folder-by-folder overview and a suggested reading/execution order.
-
-For path changes introduced during cleanup, see `docs/restructure-map.md`.
