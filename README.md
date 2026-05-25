@@ -1,31 +1,53 @@
-<h1 align="left"> Study about the impact of deficits in task-switching performance in Schizophrenia, with attention to brain connectivity maps</h1>
+# Schizophrenia Task-Switching Project
 
-<h4 align="left">Project for the course of Applied Statistics at Politecnico di Milano, 2021/2022</h4>
+Applied Statistics course project (Politecnico di Milano, 2021/2022).
 
-<p align="left"> Team members:
-<ul>
-  <li> Erica Bistacchia </li>
-  <li> Costanza Cantalini </li>
-  <li>Lorenzo Ferrara (<a href="https://github.com/lorenzoferrara/" target="_blank">Github</a>, <a href="https://www.linkedin.com/in/lorenzo-ferrara-567211244/" target="_blank">Linkedin</a>) </li> 
-  <li> Scott Pesenti </li>
-</ul>
-</p>
+## Team
+- Erica Bistacchia
+- Costanza Cantalini
+- Lorenzo Ferrara
+- Scott Pesenti
 
-<h3 align="left">Abstract of the study-case:</h3>
-<p align="left">One of the regions of the brain by schizophrenia is the dorsolateral prefrontal cortex (DLPFC) which has been associated to the ability of task switching (TS). Nevertheless, literature suggests that people affected by schizophrenia (SCHZ) do not perform worse than neuro-typical ones in a task switching test: SCHZ are simply slower in TS, but reach the same performances of CTRL. This may suggest the existence of some unknown underlying compensation mechanism in the SCHZ’s brain.
-The objective of our project: we wanted to the differences in brain activity between SCHZ and CTRL during TS, considering the results of the 175 participants subjected to the following test.</p>
+## Project Summary
+This repository contains an analysis of task-switching performance in participants diagnosed with schizophrenia (SCHZ) versus controls (CTRL), with additional exploration of brain connectivity maps.
 
-<h3 align="left">The experiment:</h3>
-<p align="left">While their brain was scanned, each subject was presented with a series of geometric shapes and asked to identify either the color or the shape of the image shown. On 25% of trials the instructions switched, such that participants were instructed to switch from responding from shape to color, or vice versa.</p>
+The study investigates whether behavioral differences in reaction time and task-switching are associated with connectivity-level differences across brain regions.
 
-<h3 align="left">The aim:</h3>
-<p align="left">Exploring neuronal activity/connectivity and reaction times of the various subjects while they perform the task and evaluating possible differences between schizophrenic
-and healthy subjects.</p>
+## Experiment in One Paragraph
+Participants performed a task-switching paradigm during fMRI acquisition. On each trial, they responded to visual stimuli by selecting either color or shape, and on a subset of trials (~25%) the active rule switched. The analysis compares reaction-time behavior, accuracy, and connectivity-derived features between CTRL and SCHZ groups.
 
-<h3 align="left">Statistical tools:</h3>
-<p align="left">An ANOVA of the subjects’ reaction times shows that both groups apply similar speed/accuracy tradeoffs. SCHZ performances are poorer than the CTRL ones, however, while the CTRL scores decrease when the subjects are requested to switch, SCHZ subjects’ performances are not affected by the switching.</p>
+## Main Analysis Themes
+- Behavioral analysis from event-level recordings (reaction time, switch costs, congruency effects)
+- Group comparisons (ANOVA and mixed-effects style workflows)
+- Connectivity-map exploration and PCA-based interpretation
+- Exploratory links with covariates (for example smoking and Barratt scales)
 
-<p align="left">A PCA on the functional connectivity maps of the subjects yielded two results: <br>  
-1)	SCHZ are more homogeneous in brain activity <br> 
-2)	the distinction between SCHZ and CRTL is not given by a single region of the brain but by the interaction of multiple systems. 
-Unfortunately, we cannot affirm that the PCA results are conclusive due to the high noise afflicting the data.</p>
+## Repository Layout
+- `analysis/`: normalized workspace for current scripts/notebooks
+- `data/`: normalized data area (`raw`, `processed`, `external`)
+- `results/`: figures, tables, and presentations
+- `docs/`: project details and migration notes
+- `references/`: papers and reference material
+- `archive/`: legacy assets kept for traceability
+
+Legacy path compatibility is preserved under `2 - materiale/` via links, but content now lives in the normalized folders.
+
+Current canonical locations:
+- `analysis/scripts/`: R analysis scripts (legacy + final variants)
+- `data/raw/events-recording/`: event-level per-subject recordings
+- `data/raw/covariates/`: phenotype/covariate files
+- `data/processed/workspaces/`: saved `.RData` workspaces used by scripts
+- `results/figures/legacy-plots/`: generated visual outputs
+
+## Notes on Reproducibility
+This is a historical academic project and scripts were written iteratively. Some files still contain local absolute paths from the original development environment.
+
+A practical cleanup path is:
+1. Start from scripts in `analysis/scripts/recording/`, `analysis/scripts/ANOVA/`, and `analysis/scripts/z_map/`.
+2. Replace hardcoded `setwd(...)` calls with project-relative paths.
+3. Save outputs in dedicated folders instead of relying on interactive plotting only.
+
+## Where to Start
+See the scripts guide at `analysis/scripts/README.md` for a folder-by-folder overview and a suggested reading/execution order.
+
+For path changes introduced during cleanup, see `docs/restructure-map.md`.
